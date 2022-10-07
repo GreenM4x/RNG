@@ -4,15 +4,17 @@ public class RngGame {
     public int minNum;
     public int maxNum;
 
-    private int numberTry = 1;
-    private int numberGuess;
-    private int numberToGuess;
+     int numberTry = 1;
+     int numberGuess;
+     int numberToGuess;
 
     RngGame(int minNum, int maxNum){
         this.minNum = minNum;
         this.maxNum = maxNum;
 
         numberToGuess = randomNumberToGuess();
+
+        System.out.println("Guess a number between 1 and 100!");
     }
     public int randomNumberToGuess() {
         return (int) (Math.random() * (this.maxNum - this.minNum) + this.minNum);
@@ -22,7 +24,6 @@ public class RngGame {
     public void guessNumber(){
 
         Scanner numberScanner = new Scanner(System.in);
-        System.out.println("Guess a number between 1 and 100!");
 
         numberGuess = numberScanner.nextInt();
 
@@ -34,7 +35,7 @@ public class RngGame {
             System.out.println("This number is to high");
             numberTry++;
             guessNumber();
-        } else if (numberGuess == numberToGuess){
+        } else {
             Win();
         }
 
